@@ -185,7 +185,7 @@ curl ... -H 'Accept: application/json' ...
 ```
 
 -   Only in the case of using payload in the request (i.e. POST, PUT or PATCH),
-    you have to use Context-Type header to specify the format (JSON).
+    you have to use Content-Type header to specify the format (JSON).
 
 ```
 curl ... -H 'Content-Type: application/json' ...
@@ -582,7 +582,7 @@ Upon receipt of this request, the broker updates the values for the
 entity attributes in its internal database and responds with 204 No Content.
 
 Now, you can use the [query entity operation](#query-context-operation) to check that Room1
-has been actually been updated.
+has actually been updated.
 
 You can also use the `PUT /v2/entities/{id}/attrs/{attrName}/value` operation to update
 the value of an attribute in a really compact way and leaving the attribute type untouched.
@@ -735,7 +735,7 @@ Write it down because you will need it later in this tutorial.
 ```
 
 Let's have a look now at accumulator-server.py. We will see one (and
-just one by the moment, no matter how much you wait)
+just one for the moment, no matter how much you wait)
 notifyContextRequest, similar to this one:
 
 ```
@@ -880,7 +880,7 @@ important remarks:
     may have a different attributes set) the attributes set per type
     returned by this operation is the union set of the attribute sets of
     each entity belonging to that type.
--   Moreover, attributes with the same in different entities may have
+-   Moreover, attributes with the same name in different entities may have
     different types. Thus, the `types` field associated to each attribute
     is a list.
 
@@ -978,9 +978,9 @@ EOF
 ```
 
 The response uses HTTP response code 204 No Content. In this case we are using
-`append` `actionType`, which is for adding entities and attribute. We can also use
+`append` `actionType`, which is for adding entities and attributes. We can also use
 `update` to change an attribute in one entity (temperature in Room3) and another
-attribute in other (pressure in Room4), leaving the other attributes untouched.
+attribute in another (pressure in Room4), leaving the other attributes untouched.
 
 ```
 curl -v localhost:1026/v2/op/update -s -S -H 'Content-Type: application/json' -d @- <<EOF
@@ -1100,7 +1100,7 @@ Write it down because you will need it later in this tutorial.
 < Date: Tue, 13 Feb 2018 10:30:21 GMT
 ```
 
-You may retrieve the list of existing registration using the following registration:
+You may retrieve the list of existing registrations using the following operation:
 
 ```
 curl localhost:1026/v2/registrations -s -S -H 'Accept: application/json' | python -mjson.tool
