@@ -376,7 +376,7 @@ which response is
 ]
 ```
 
-Compare with the same operation, but reversing the `attrs` list (pressure first, then pressure):
+Compare with the same operation, but reversing the `attrs` list (pressure first, then temperature):
 
 Request:
 
